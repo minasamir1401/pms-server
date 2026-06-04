@@ -1,0 +1,56 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Certificate {
+  certificateId     String   @id
+  issueDate         DateTime @default(now())
+  qrCodeLabel       String   // Formatted as "2026-" + certificateId
+
+  // Basic Info
+  unitName          String
+  governorate       String
+  fullName          String
+  nationalId        String
+  gender            String
+  nationality       String
+  age               Int
+  phoneNumber       String
+  maritalAddress    String?
+  idAddress         String
+
+  // Medical Tests
+  height            Float
+  weight            Float
+  bloodPressure     String
+  bloodType         String
+  rh                String
+  hbsAg             String
+  antiHcv           String
+  antiHiv           String
+  randomBloodSugar  Float
+  bmi               Float
+  hb                Float
+
+  // Hb Electrophoresis
+  hbA               Float
+  hbF               Float
+  hbA2              Float
+  hbC               Float
+  hbS               Float
+
+  // Partner Info
+  partnerName       String?
+  partnerNationalId String?
+}
+
+model Admin {
+  id       Int    @id @default(1)
+  username String
+  password String
+}
