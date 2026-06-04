@@ -32,10 +32,10 @@ export async function login(req: Request, res: Response) {
       // Set cookie in Express header
       res.cookie("admin_session", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
+        secure: true,
+        sameSite: "none",
         path: "/",
-        maxAge: 60 * 60 * 24 * 1000, // 24 hours in ms
+        maxAge: 60 * 60 * 24 * 1000,
       });
 
       return res.json({ success: true, token, message: "تم تسجيل الدخول بنجاح" });
@@ -54,8 +54,8 @@ export async function login(req: Request, res: Response) {
 export async function logout(req: Request, res: Response) {
   res.cookie("admin_session", "", {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    secure: true,
+    sameSite: "none",
     path: "/",
     maxAge: 0,
   });
