@@ -3,7 +3,8 @@ import { prisma } from "../lib/prisma";
 
 // Helper to generate a random 8-digit numeric string
 function generate8DigitId(): string {
-  return Math.floor(10000000 + Math.random() * 90000000).toString();
+  const random5Digits = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
+  return `050${random5Digits}`;
 }
 
 /**
