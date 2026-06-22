@@ -77,6 +77,7 @@ export async function createCertificate(req: Request, res: Response) {
       data: {
         certificateId,
         qrCodeLabel,
+        issueDate: body.issueDate ? new Date(body.issueDate) : undefined,
         unitName: body.unitName,
         governorate: body.governorate,
         fullName: body.fullName,
@@ -126,6 +127,7 @@ export async function updateCertificate(req: Request, res: Response) {
     const updatedCertificate = await prisma.certificate.update({
       where: { certificateId: id },
       data: {
+        issueDate: body.issueDate ? new Date(body.issueDate) : undefined,
         unitName: body.unitName,
         governorate: body.governorate,
         fullName: body.fullName,
