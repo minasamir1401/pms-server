@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { login, logout, updateCredentials } from "./controllers/authController";
 import { getAllCertificates, getCertificate, createCertificate, updateCertificate, deleteCertificate } from "./controllers/certificateController";
+import { getSettings, updateSettings } from "./controllers/settingsController";
 import { authMiddleware } from "./middleware/authMiddleware";
 
 dotenv.config();
@@ -52,6 +53,10 @@ app.post("/api/certificates", authMiddleware as any, createCertificate);
 app.get("/api/certificates/:id", getCertificate); // Public route for scanning QR codes
 app.put("/api/certificates/:id", authMiddleware as any, updateCertificate);
 app.delete("/api/certificates/:id", authMiddleware as any, deleteCertificate);
+
+// 3. Settings
+app.get("/api/settings", getSettings);
+app.put("/api/settings", authMiddleware as any, updateSettings);
 
 // Root Health check
 app.get("/health", (req, res) => {
