@@ -47,6 +47,14 @@ model Certificate {
   // Partner Info
   partnerName       String?
   partnerNationalId String?
+
+  // UI Customizations
+  titleWidth        Int?
+  titleHeight       Int?
+  titleFontSize     Int?
+  titleY            Int?
+  titleX            Int?
+  titleText         String?
 }
 
 model Admin {

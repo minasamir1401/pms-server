@@ -106,6 +106,12 @@ export async function createCertificate(req: Request, res: Response) {
         hbS: parseFloat(body.hbS) || 0,
         partnerName: body.partnerName || null,
         partnerNationalId: body.partnerNationalId || null,
+        titleWidth: body.titleWidth !== undefined ? parseInt(body.titleWidth) : null,
+        titleHeight: body.titleHeight !== undefined ? parseInt(body.titleHeight) : null,
+        titleFontSize: body.titleFontSize !== undefined ? parseInt(body.titleFontSize) : null,
+        titleY: body.titleY !== undefined ? parseInt(body.titleY) : null,
+        titleX: body.titleX !== undefined ? parseInt(body.titleX) : null,
+        titleText: body.titleText || null,
       },
     });
 
@@ -156,6 +162,12 @@ export async function updateCertificate(req: Request, res: Response) {
         hbS: parseFloat(body.hbS) || 0,
         partnerName: body.partnerName || null,
         partnerNationalId: body.partnerNationalId || null,
+        titleWidth: body.titleWidth !== undefined ? parseInt(body.titleWidth) : null,
+        titleHeight: body.titleHeight !== undefined ? parseInt(body.titleHeight) : null,
+        titleFontSize: body.titleFontSize !== undefined ? parseInt(body.titleFontSize) : null,
+        titleY: body.titleY !== undefined ? parseInt(body.titleY) : null,
+        titleX: body.titleX !== undefined ? parseInt(body.titleX) : null,
+        titleText: body.titleText || null,
       },
     });
 
