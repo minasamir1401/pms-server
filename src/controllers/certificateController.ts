@@ -4,7 +4,7 @@ import { prisma } from "../lib/prisma";
 // Helper to generate a random 8-digit numeric string
 function generate8DigitId(): string {
   const random5Digits = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
-  return `050${random5Digits}`;
+  return `060${random5Digits}`;
 }
 
 /**

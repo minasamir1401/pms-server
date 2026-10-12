@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function main() {
-  const certificateId = "05015745";
+  const certificateId = "06015745";
   const qrCodeLabel = `2026-${certificateId}`;
 
   const cert = await prisma.certificate.upsert({
